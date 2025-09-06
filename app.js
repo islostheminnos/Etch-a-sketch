@@ -7,13 +7,17 @@ const clearBtn = document.querySelector(".clear")
 const colorPicker = document.querySelector("#color")
 const rgbBtn = document.querySelector(".rgbMode")
 const infoHeader = document.querySelector("h3")
+const eraserBtn = document.querySelector(".eraser")
 gridP.innerText = "10 X 10"
 
 let rgbMode = false
 let isRgb = 0
 let isMouseDown = false
+let eraserMode = false
+let isEraser = 0
 
-rgbBtn.classList.toggle = "green"
+rgbBtn.style.backgroundColor = "red"
+eraserBtn.style.backgroundColor = "red"
 
 //Showing current grid to user
 gridInput.addEventListener("change", ()=>{
@@ -40,6 +44,17 @@ gridButton.addEventListener("click", ()=>{
    }
 })
 
+eraserBtn.addEventListener("click", ()=>{
+isEraser++
+    if(isEraser%2 === 0){
+        eraserMode = false
+        eraserBtn.style.backgroundColor = "red"
+    }
+    else if(isEraser%2 === 1){
+        eraserMode = true
+        eraserBtn.style.backgroundColor = "green"
+    }
+})
 
 
 //Painting divs when mouseenter
@@ -47,7 +62,10 @@ gridContainer.addEventListener("mouseenter", ()=>{
      gridDivs = document.querySelectorAll(".gridDiv")
         gridDivs.forEach((div)=>{
             div.addEventListener("mouseenter", ()=>{
-                if(rgbMode === false && isMouseDown){
+                if(eraserMode && isMouseDown){
+                    div.style.backgroundColor = "white"
+                }
+                else if(rgbMode === false && isMouseDown){
                      div.style.backgroundColor = `${colorPicker.value}`
                 }
                 else if(rgbMode && isMouseDown){
