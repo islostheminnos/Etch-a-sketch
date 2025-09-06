@@ -1,8 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap');
+
+
 * {
     box-sizing: border-box;
+      font-family: "Epunda Slab", serif;
+      font-size: large;
 }
 body{
-    background-color: rgb(64, 60, 60);
+    background-color: rgb(194, 191, 191);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +55,7 @@ label{
     display: flex;
     flex-wrap: wrap;
     background-color: white;
-    border: 1px solid black;
+    
     cursor: pointer;
    
     
@@ -86,13 +92,17 @@ input{
 }
 
 #color{
-     width: 200px;
+    width: 50px;
    height: 50px;
+   border: none;
+   background-color: rgb(194, 191, 191);
+   border-radius: 50%;
+   
 }
 
 
 h1{
-    color: white;
+    color: rgb(114, 62, 62);
     font-size: 50px;
     text-align: center;
 }
@@ -118,3 +128,13 @@ h3{
 .eraser{
     color: white;
 }
+
+.firstLaunch{
+    width: 50px;
+    height: 50px;
+}
+
+.gridDiv{
+    border: .2px solid rgba(84, 83, 83, 0.059);
+}
+

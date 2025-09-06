@@ -42,6 +42,7 @@ gridButton.addEventListener("click", ()=>{
         gridContainer.append(newDiv)
         infoHeader.innerText = "You can change your brush color or pick RGB mode for rainbow paint"
    }
+   gridDivs = document.querySelectorAll(".gridDiv")
 })
 
 eraserBtn.addEventListener("click", ()=>{
@@ -57,11 +58,12 @@ isEraser++
 })
 
 
-//Painting divs when mouseenter
+// Painting divs when mouseenter
 gridContainer.addEventListener("mouseenter", ()=>{
      gridDivs = document.querySelectorAll(".gridDiv")
         gridDivs.forEach((div)=>{
-            div.addEventListener("mouseenter", ()=>{
+            div.addEventListener("mouseenter", (e)=>{
+                 
                 if(eraserMode && isMouseDown){
                     div.style.backgroundColor = "white"
                 }
@@ -77,18 +79,24 @@ gridContainer.addEventListener("mouseenter", ()=>{
 })
 
 
-gridContainer.addEventListener("mousedown", ()=>{
+window.addEventListener("mousedown", ()=>{
     isMouseDown = !isMouseDown
+    console.log("mouse down ")
 })
 
-gridContainer.addEventListener("mouseup", ()=>{
+window.addEventListener("mouseup", ()=>{
     isMouseDown = !isMouseDown
+    console.log("mouse up")
 })
+
+
 
 
 // Clear all grids
 clearBtn.addEventListener("click", ()=>{
-    gridContainer.innerHTML = ""
+    gridDivs.forEach((grid)=>{
+        grid.style.backgroundColor = "white"
+    })
     console.log("clear")
 })
 
