@@ -129,9 +129,6 @@ isRgb++
 })
 
 
-//Yarin basili tutarken cizme, silgi ile silebilme mekaniğini kodla
-//RGB mode açıksa buton rengi yeşil, değilse kırmızı
-// 
 
 
 
