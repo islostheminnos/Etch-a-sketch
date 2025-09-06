@@ -19,21 +19,10 @@ let isEraser = 0
 rgbBtn.style.backgroundColor = "red"
 eraserBtn.style.backgroundColor = "red"
 
-//Showing current grid to user
+//Showing and change grid
 gridInput.addEventListener("change", ()=>{
     gridP.innerText = `${gridInput.value} X ${gridInput.value}`
-})
-
-colorPicker.addEventListener("change", ()=>{
-    isRgb = 0
-    rgbMode = false
-    console.log("changed")
-     infoHeader.innerText = ""
-})
-
-//Clear and add grids
-gridButton.addEventListener("click", ()=>{
-    gridContainer.innerHTML = ""
+     gridContainer.innerHTML = ""
     for(let i=0; i < gridInput.value * gridInput.value; i++){
         const newDiv = document.createElement("div")
         newDiv.classList.add("gridDiv")
@@ -45,6 +34,18 @@ gridButton.addEventListener("click", ()=>{
    gridDivs = document.querySelectorAll(".gridDiv")
 })
 
+
+//Change brush color
+colorPicker.addEventListener("change", ()=>{
+    isRgb = 0
+    rgbMode = false
+    console.log("changed")
+     infoHeader.innerText = ""
+})
+
+
+
+//Erase button BG changer
 eraserBtn.addEventListener("click", ()=>{
 isEraser++
     if(isEraser%2 === 0){
