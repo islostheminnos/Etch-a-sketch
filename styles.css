@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    text-align: center;
+    
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    
+}
+
+.gridContainer{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(128, 128, 128, 0.121);
+    
+    
+}
+
+.gridContainer div{
+    border: .2px solid rgba(89, 87, 87, 0.392);
+   
+    box-sizing: border-box;
+    
+}
