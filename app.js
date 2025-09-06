@@ -6,17 +6,26 @@ let gridDivs = document.querySelectorAll(".gridDiv")
 const clearBtn = document.querySelector(".clear")
 const colorPicker = document.querySelector("#color")
 const rgbBtn = document.querySelector(".rgbMode")
-
+const infoHeader = document.querySelector("h3")
 gridP.innerText = "10 X 10"
 
 let rgbMode = false
 let isRgb = 0
+let isMouseDown = false
+
+rgbBtn.classList.toggle = "green"
+
 //Showing current grid to user
 gridInput.addEventListener("change", ()=>{
     gridP.innerText = `${gridInput.value} X ${gridInput.value}`
 })
 
-
+colorPicker.addEventListener("change", ()=>{
+    isRgb = 0
+    rgbMode = false
+    console.log("changed")
+     infoHeader.innerText = ""
+})
 
 //Clear and add grids
 gridButton.addEventListener("click", ()=>{
@@ -27,9 +36,10 @@ gridButton.addEventListener("click", ()=>{
         newDiv.style.width = `${500/gridInput.value}px`
         newDiv.style.height = `${500/gridInput.value}px`
         gridContainer.append(newDiv)
-        
+        infoHeader.innerText = "You can change your brush color or pick RGB mode for rainbow paint"
    }
 })
+
 
 
 //Painting divs when mouseenter
@@ -37,15 +47,24 @@ gridContainer.addEventListener("mouseenter", ()=>{
      gridDivs = document.querySelectorAll(".gridDiv")
         gridDivs.forEach((div)=>{
             div.addEventListener("mouseenter", ()=>{
-                if(rgbMode === false){
+                if(rgbMode === false && isMouseDown){
                      div.style.backgroundColor = `${colorPicker.value}`
                 }
-                else{
+                else if(rgbMode && isMouseDown){
                      div.style.backgroundColor = randomColor()
                 }
                
             })
         })
+})
+
+
+gridContainer.addEventListener("mousedown", ()=>{
+    isMouseDown = !isMouseDown
+})
+
+gridContainer.addEventListener("mouseup", ()=>{
+    isMouseDown = !isMouseDown
 })
 
 
@@ -69,17 +88,24 @@ let randomColor = ()=>{
 //RGB paint or normal paint
 rgbBtn.addEventListener("click", ()=>{
 isRgb++
-
+ infoHeader.innerText = ""
     if(isRgb%2 === 0){
         rgbMode = false
+        
+        rgbBtn.style.backgroundColor = "red"
     }
     else if(isRgb%2 === 1){
         rgbMode = true
+
+        rgbBtn.style.backgroundColor = "green"
+        
     }
 })
 
 
 //Yarin basili tutarken cizme, silgi ile silebilme mekaniğini kodla
+//RGB mode açıksa buton rengi yeşil, değilse kırmızı
+// 
 
 
 
