@@ -6,7 +6,7 @@ let gridDivs = document.querySelectorAll(".gridDiv")
 const clearBtn = document.querySelector(".clear")
 const colorPicker = document.querySelector("#color")
 const rgbBtn = document.querySelector(".rgbMode")
-const infoHeader = document.querySelector("h3")
+
 const eraserBtn = document.querySelector(".eraser")
 gridP.innerText = "10 X 10"
 
@@ -19,6 +19,15 @@ let isEraser = 0
 rgbBtn.style.backgroundColor = "red"
 eraserBtn.style.backgroundColor = "red"
 
+ for(let i=0; i < gridInput.value * gridInput.value; i++){
+        const newDiv = document.createElement("div")
+        newDiv.classList.add("gridDiv")
+        newDiv.style.width = `${500/gridInput.value}px`
+        newDiv.style.height = `${500/gridInput.value}px`
+        gridContainer.append(newDiv)
+   
+   }
+
 //Showing and change grid
 gridInput.addEventListener("change", ()=>{
     gridP.innerText = `${gridInput.value} X ${gridInput.value}`
@@ -29,7 +38,7 @@ gridInput.addEventListener("change", ()=>{
         newDiv.style.width = `${500/gridInput.value}px`
         newDiv.style.height = `${500/gridInput.value}px`
         gridContainer.append(newDiv)
-        infoHeader.innerText = "You can change your brush color or pick RGB mode for rainbow paint"
+   
    }
    gridDivs = document.querySelectorAll(".gridDiv")
 })
@@ -40,7 +49,7 @@ colorPicker.addEventListener("change", ()=>{
     isRgb = 0
     rgbMode = false
     console.log("changed")
-     infoHeader.innerText = ""
+    
 })
 
 
@@ -81,12 +90,12 @@ gridContainer.addEventListener("mouseenter", ()=>{
 
 
 window.addEventListener("mousedown", ()=>{
-    isMouseDown = !isMouseDown
+    isMouseDown = true
     console.log("mouse down ")
 })
 
 window.addEventListener("mouseup", ()=>{
-    isMouseDown = !isMouseDown
+    isMouseDown = false
     console.log("mouse up")
 })
 
@@ -115,7 +124,6 @@ let randomColor = ()=>{
 //RGB paint or normal paint
 rgbBtn.addEventListener("click", ()=>{
 isRgb++
- infoHeader.innerText = ""
     if(isRgb%2 === 0){
         rgbMode = false
         
