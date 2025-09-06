@@ -38,7 +38,7 @@ label{
     justify-content: center;
     align-items: center;
     
-    gap: 50px;
+    gap: 200px;
     
 }
 
@@ -47,10 +47,11 @@ label{
     height: 500px;
     display: flex;
     flex-wrap: wrap;
-    background-color: rgba(128, 128, 128, 0.121);
+    background-color: white;
     border: 1px solid black;
     cursor: pointer;
-    background-color: grey;
+   
+    
     
     
 }
