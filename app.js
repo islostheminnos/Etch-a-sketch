@@ -73,7 +73,7 @@ gridContainer.addEventListener("mouseenter", ()=>{
      gridDivs = document.querySelectorAll(".gridDiv")
         gridDivs.forEach((div)=>{
             div.addEventListener("mouseenter", (e)=>{
-                 
+                 div.setAttribute('draggable', false);
                 if(eraserMode && isMouseDown){
                     div.style.backgroundColor = "white"
                 }
